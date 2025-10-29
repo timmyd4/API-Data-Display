@@ -1,4 +1,7 @@
 import {useState, useEffect, use} from "react";
+import handleNewFive from "./subComponents/HandleNewFive";
+import RandomFive from "./subComponents/RandomFive";
+import js from "@eslint/js";
 
 export default function Item()
 {
@@ -18,6 +21,7 @@ export default function Item()
                 }
                 const jsonData = await res.json();
                 setData(jsonData);
+                setDisplayed(RandomFive(jsonData))
             } catch (err) {
                 setError(err.message);
             } finally {
@@ -28,13 +32,6 @@ export default function Item()
         fetchData();
     }, []);
 
-    function getRandomFive(arr) {
-        return [...arr].sort(() => 0.5 - Math.random()).slice(0, 5);
-    }
-
-    function handleNewFive() {
-        setDisplayed(getRandomFive(data));
-    }
 
     if(loading) return <p>loading...</p>
     if(error) return <p>Error: {error}</p>
@@ -43,7 +40,7 @@ export default function Item()
     return(
         <main>
             <div className="new-btn-div">
-                <button onClick={handleNewFive} className="new-five-btn">Show New 5</button>
+                <button onClick={() => handleNewFive({data, setDisplayed})} className="new-five-btn">Show New 5</button>
             </div>
             <div className="container">
                 {displayed.map((char) => (

@@ -1,6 +1,9 @@
 export default function Header()
 {
     return (
-        <p className="welcome-text">Welcome</p>
+        <div>
+            <p className="welcome-text">Star-Wars</p>
+            <p className="welcome-text">Characters</p>
+        </div>
     )
 }

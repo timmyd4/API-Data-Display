@@ -49,9 +49,29 @@ body
 /*N*/
 .new-five-btn
 {
-    display: flex;
-    justify-content: center;
-    justify-items: center;
+    background-color: #3b3d46;        
+    color: #f5f5f5;
+    border: 1px solid #777;
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 1.2rem;
+    font-weight: light;
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease;
+}
+
+.new-five-btn:hover 
+{
+    background-color: #4a4c56;
+    transform: scale(1.08);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+}
+
+.new-five-btn:active 
+{
+    transform: scale(1);
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
 }
 
 .new-btn-div
